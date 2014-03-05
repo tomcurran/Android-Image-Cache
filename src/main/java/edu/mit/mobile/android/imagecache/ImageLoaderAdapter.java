@@ -39,10 +39,10 @@ import com.commonsware.cwac.adapter.AdapterWrapper;
  * </p>
  *
  * <p>
- * To use, pass in a {@link ListAdapter} that generates {@link ImageView}s in the layout hierarchy
+ * To use, pass in a {@link android.widget.ListAdapter} that generates {@link android.widget.ImageView}s in the layout hierarchy
  * of getView(). ImageViews are searched for using the IDs specified in {@code imageViewIDs}. When
- * found, {@link ImageView#getTag(R.id.ic__uri)} is called and should return a {@link Uri}
- * referencing a local or remote image. See {@link ImageCache#loadImage(int, Uri, int, int)} for
+ * found, {@link android.widget.ImageView#getTag(R.id.ic__uri)} is called and should return a {@link android.net.Uri}
+ * referencing a local or remote image. See {@link ImageCache#loadImage(int, android.net.Uri, int, int)} for
  * details on the types of URIs and images supported.
  * </p>
  *
@@ -81,14 +81,14 @@ public class ImageLoaderAdapter extends AdapterWrapper implements ImageCache.OnI
 
     /**
      * Like the
-     * {@link #ImageLoaderAdapter(Context, ListAdapter, ImageCache, int[], int, int, int, boolean)}
+     * {@link #ImageLoaderAdapter(android.content.Context, android.widget.ListAdapter, ImageCache, int[], int, int, int, boolean)}
      * constructor with a default of {@code true} for autosize.
      *
      * @param context
      *            a context for getting the display density. You don't need to worry about this
      *            class holding on to a reference to this: it's only used in the constructor.
      * @param wrapped
-     *            the adapter that's wrapped. See {@link ImageLoaderAdapter} for the requirements of
+     *            the adapter that's wrapped. See {@link edu.mit.mobile.android.imagecache.ImageLoaderAdapter} for the requirements of
      *            using this adapter wrapper.
      * @param cache
      *            an instance of your image cache. This can be shared with the process.
@@ -113,7 +113,7 @@ public class ImageLoaderAdapter extends AdapterWrapper implements ImageCache.OnI
      *            a context for getting the display density. You don't need to worry about this
      *            class holding on to a reference to this: it's only used in the constructor.
      * @param wrapped
-     *            the adapter that's wrapped. See {@link ImageLoaderAdapter} for the requirements of
+     *            the adapter that's wrapped. See {@link edu.mit.mobile.android.imagecache.ImageLoaderAdapter} for the requirements of
      *            using this adapter wrapper.
      * @param cache
      *            an instance of your image cache. This can be shared with the process.
@@ -143,7 +143,7 @@ public class ImageLoaderAdapter extends AdapterWrapper implements ImageCache.OnI
         mAutosize = autosize;
 
         if (autosize) {
-            mViewDimensionCache = new SparseArray<ImageLoaderAdapter.ViewDimensionCache>();
+            mViewDimensionCache = new SparseArray<ViewDimensionCache>();
         } else {
             mViewDimensionCache = null;
         }
@@ -171,7 +171,7 @@ public class ImageLoaderAdapter extends AdapterWrapper implements ImageCache.OnI
      * Constructs a new adapter with a default unit of pixels.
      *
      * @param wrapped
-     *            the adapter that's wrapped. See {@link ImageLoaderAdapter} for the requirements of
+     *            the adapter that's wrapped. See {@link edu.mit.mobile.android.imagecache.ImageLoaderAdapter} for the requirements of
      *            using this adapter wrapper.
      * @param cache
      *            an instance of your image cache. This can be shared with the process.
@@ -194,14 +194,14 @@ public class ImageLoaderAdapter extends AdapterWrapper implements ImageCache.OnI
     }
 
     /**
-     * This can be called from your {@link Activity#onResume()} method.
+     * This can be called from your {@link android.app.Activity#onResume()} method.
      */
     public void registerOnImageLoadListener() {
         mCache.registerOnImageLoadListener(this);
     }
 
     /**
-     * This can be called from your {@link Activity#onPause()} method.
+     * This can be called from your {@link android.app.Activity#onPause()} method.
      */
     public void unregisterOnImageLoadListener() {
         mCache.unregisterOnImageLoadListener(this);

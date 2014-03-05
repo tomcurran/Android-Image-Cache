@@ -228,7 +228,7 @@ public abstract class DiskCache<K, V> {
 
     /**
      * Writes the value stored in the cache to disk by calling
-     * {@link #toDisk(Object, Object, OutputStream)}.
+     * {@link #toDisk(Object, Object, java.io.OutputStream)}.
      *
      * @param key
      *            The key to find the value.
@@ -252,12 +252,12 @@ public abstract class DiskCache<K, V> {
     /**
      * Writes the contents of the InputStream straight to disk. It is the caller's responsibility to
      * ensure it's the same type as what would be written with
-     * {@link #toDisk(Object, Object, OutputStream)}
+     * {@link #toDisk(Object, Object, java.io.OutputStream)}
      *
      * @param key
      * @param value
-     * @throws IOException
-     * @throws FileNotFoundException
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
      */
     public final void putRaw(K key, InputStream value) throws IOException, FileNotFoundException {
 
@@ -347,7 +347,7 @@ public abstract class DiskCache<K, V> {
      *
      * @param is
      * @param os
-     * @throws IOException
+     * @throws java.io.IOException
      */
     static public void inputStreamToOutputStream(InputStream is, OutputStream os)
             throws IOException {
@@ -361,7 +361,7 @@ public abstract class DiskCache<K, V> {
     }
 
     /**
-     * Reads the value from disk using {@link #fromDisk(Object, InputStream)}.
+     * Reads the value from disk using {@link #fromDisk(Object, java.io.InputStream)}.
      *
      * @param key
      * @return The value for key or null if the key doesn't map to any existing entries.

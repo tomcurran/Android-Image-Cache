@@ -58,8 +58,8 @@ public class SimpleThumbnailCursorAdapter extends SimpleCursorAdapter {
     private View mIndeterminate;
 
     /**
-     * All parameters are passed directly to {@link SimpleCursorAdapter}
-     * {@link #SimpleThumbnailCursorAdapter(Context, int, Cursor, String[], int[], int[], int)}
+     * All parameters are passed directly to {@link android.support.v4.widget.SimpleCursorAdapter}
+     * {@link #SimpleThumbnailCursorAdapter(android.content.Context, int, android.database.Cursor, String[], int[], int[], int)}
      *
      * @param context
      * @param layout
